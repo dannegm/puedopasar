@@ -21,11 +21,11 @@ const NowSeparator = ({ affected }) => {
     return (
         <li className='flex items-center' aria-hidden>
             <div className={cn('size-4 rounded-full shrink-0 -ml-2', affected ? 'bg-red-500' : 'bg-green-500')} />
-            <div className={cn('h-[2px] flex-1', affected ? 'bg-red-500' : 'bg-green-500')} />
+            <div className={cn('h-0.5 flex-1', affected ? 'bg-red-500' : 'bg-green-500')} />
             <span className={cn('text-xs mx-2 font-bold px-2.5 py-0.5 rounded-full shrink-0', affected ? 'bg-red-500 text-white' : 'bg-green-500 text-white')}>
                 {t('closure_list.now')}
             </span>
-            <div className={cn('h-[2px] flex-1', affected ? 'bg-red-500' : 'bg-green-500')} />
+            <div className={cn('h-0.5 flex-1', affected ? 'bg-red-500' : 'bg-green-500')} />
         </li>
     );
 };
@@ -59,7 +59,7 @@ export const ClosureList = ({ dates, affected }) => {
                             >
                                 <div className='flex flex-col gap-1.5 min-w-0'>
                                     <div className='flex items-center gap-2.5 flex-wrap'>
-                                        <span className='font-condensed font-bold text-xl uppercase text-white/90 capitalize'>
+                                        <span className='font-condensed font-bold text-xl uppercase text-white/90'>
                                             {formatDate(entry.date, i18n.language)}
                                         </span>
                                         {isToday && (

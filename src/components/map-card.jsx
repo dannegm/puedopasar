@@ -13,7 +13,7 @@ const ZoomControls = () => {
                 type='button'
                 aria-label='Zoom in'
                 onClick={() => map?.zoomTo(map.getZoom() + 1, { duration: 300 })}
-                className='size-7 flex-center bg-neutral-100 rounded-full text-zinc-800 transition-colors hover:text-black [&>svg]:size-5 [&>svg]:[stroke-width:2.5]'
+                className='size-7 flex-center bg-neutral-100 rounded-full text-zinc-800 transition-colors hover:text-black [&>svg]:size-5 [&>svg]:stroke-[2.5]'
             >
                 <Plus />
             </button>
@@ -21,7 +21,7 @@ const ZoomControls = () => {
                 type='button'
                 aria-label='Zoom out'
                 onClick={() => map?.zoomTo(map.getZoom() - 1, { duration: 300 })}
-                className='size-7 flex-center bg-neutral-100 rounded-full text-zinc-800 transition-colors hover:text-black [&>svg]:size-5 [&>svg]:[stroke-width:2.5]'
+                className='size-7 flex-center bg-neutral-100 rounded-full text-zinc-800 transition-colors hover:text-black [&>svg]:size-5 [&>svg]:stroke-[2.5]'
             >
                 <Minus />
             </button>
@@ -64,10 +64,7 @@ const DirectionArrow = ({ coords, className, flyToZoom = 14 }) => {
     const [arrow, setArrow] = useState(null);
 
     useEffect(() => {
-        if (!isLoaded || !map || !coords) {
-            setArrow(null);
-            return;
-        }
+        if (!isLoaded || !map || !coords) return;
 
         const update = () => {
             if (map.getBounds().contains([coords.lng, coords.lat])) {
