@@ -1,0 +1,79 @@
+{
+    "hero": {
+        "question": "Can I get through today?",
+        "answer_yes": "Yes",
+        "answer_no": "No",
+        "yes": "You can pass",
+        "no": "Road closure today",
+        "cta": "Check if you're affected",
+        "proximity": {
+            "inside": "You're inside the closure zone",
+            "near": "You're very close to the perimeter",
+            "close": "You're nearby — may be affected",
+            "safe": "Your area is not directly affected"
+        },
+        "geo_denied": "Enable location to check if your area is affected",
+        "geo_unavailable": "Your device does not support geolocation",
+        "upcoming": "Closure starts at {{time}}",
+        "distance_from_stadium": "{{distance}} from Estadio Ciudad de México"
+    },
+    "closure_list": {
+        "title": "Closure days",
+        "today": "TODAY",
+        "past": "PAST",
+        "partial": "Partial",
+        "total": "Full",
+        "prev_day": "From the previous day",
+        "reopen": "Reopening ~3h after the match"
+    },
+    "why_closed": {
+        "title": "Why are the streets closed?",
+        "body": "The Mexico City Public Safety Secretariat (SSC CDMX) implements the Última Milla Operation on match days at Estadio Ciudad de México. This operation establishes a ~1.6 km security perimeter around the stadium, with restricted access for ticket holders, accredited personnel, or residents with a Digital Pass issued by Alcaldía Coyoacán.",
+        "sources": "Official sources",
+        "source_ssc": "SSC CDMX — Traffic Operation",
+        "source_semovi": "SEMOVI CDMX",
+        "source_coyoacan": "Alcaldía Coyoacán"
+    },
+    "how_to_pass": {
+        "title": "How can I get through?",
+        "ticket": {
+            "label": "I have a match ticket",
+            "body": "Show your ticket at perimeter checkpoints. Access is granted toward the stadium."
+        },
+        "resident": {
+            "label": "I live in the area",
+            "body": "You must obtain the Digital Pass (Tarjetón Digital) from Alcaldía Coyoacán. It's free and issued for neighborhoods inside the Última Milla Polygon."
+        },
+        "work": {
+            "label": "I need to work or study there",
+            "body": "Businesses and schools inside the perimeter may continue normal operations. Bring ID and proof of your activity in the area."
+        },
+        "transit": {
+            "label": "I use public transit",
+            "body": "The Metro (Line 2, Tasqueña station) and Metrobús operate with route adjustments. Check the Metro CDMX app for alternative routes on match days."
+        }
+    },
+    "footer": {
+        "updated": "Data updated",
+        "source": "Source",
+        "confidence": {
+            "label": "Confidence",
+            "high": "High",
+            "medium": "Medium",
+            "low": "Low"
+        },
+        "fallback_warning": "Using fallback data — official sources unavailable",
+        "lang": "Language"
+    },
+    "map": {
+        "title": "Closure zone",
+        "perimeter_label": "Última Milla Polygon",
+        "you": "Your location",
+        "stadium": "Estadio Ciudad de México"
+    },
+    "streets": {
+        "title": "Affected roads",
+        "total": "Full closure",
+        "partial": "Partial closure"
+    }
+}

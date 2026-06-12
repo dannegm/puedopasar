@@ -1,0 +1,79 @@
+{
+    "hero": {
+        "question": "¿Puedo pasar hoy?",
+        "answer_yes": "Sí",
+        "answer_no": "No",
+        "yes": "Puedes pasar",
+        "no": "Hay cierre vial",
+        "cta": "Descubre si te afecta",
+        "proximity": {
+            "inside": "Estás dentro de la zona de cierre",
+            "near": "Estás muy cerca del perímetro",
+            "close": "Estás cerca, puede afectarte",
+            "safe": "Tu zona no se ve afectada directamente"
+        },
+        "geo_denied": "Activa la ubicación para ver si tu zona se ve afectada",
+        "geo_unavailable": "Tu dispositivo no soporta geolocalización",
+        "upcoming": "Cierre a las {{time}}h",
+        "distance_from_stadium": "a {{distance}} del Estadio Ciudad de México"
+    },
+    "closure_list": {
+        "title": "Días de cierre",
+        "today": "HOY",
+        "past": "PASADO",
+        "partial": "Cierre parcial",
+        "total": "Cierre total",
+        "prev_day": "Desde el día anterior",
+        "reopen": "Reapertura ~3h después del partido"
+    },
+    "why_closed": {
+        "title": "¿Por qué cierran las calles?",
+        "body": "La Secretaría de Seguridad Ciudadana (SSC CDMX) implementa el Operativo Última Milla en los días de partido en el Estadio Ciudad de México. Este operativo establece un perímetro de seguridad de aproximadamente 1.6 km alrededor del estadio, con acceso restringido a personas con entrada al partido, acreditación oficial o Tarjetón Digital de residente emitido por la Alcaldía Coyoacán.",
+        "sources": "Fuentes oficiales",
+        "source_ssc": "SSC CDMX — Operativo Vial",
+        "source_semovi": "SEMOVI CDMX",
+        "source_coyoacan": "Alcaldía Coyoacán"
+    },
+    "how_to_pass": {
+        "title": "¿Cómo puedo pasar?",
+        "ticket": {
+            "label": "Tengo entrada al partido",
+            "body": "Muestra tu boleto en los puntos de control del perímetro. El acceso es directo hacia el estadio."
+        },
+        "resident": {
+            "label": "Soy residente de la zona",
+            "body": "Debes tramitar el Tarjetón Digital en la Alcaldía Coyoacán. Es gratuito y se emite para colonias dentro del Polígono Última Milla."
+        },
+        "work": {
+            "label": "Tengo que trabajar o estudiar",
+            "body": "Los negocios y centros educativos dentro del perímetro pueden continuar su actividad normal. Lleva identificación y comprobante de tu actividad en la zona."
+        },
+        "transit": {
+            "label": "Uso transporte público",
+            "body": "El Metro (Línea 2, estación Tasqueña) y el Metrobús operan con ajustes en sus rutas. Consulta la app del Metro CDMX para rutas alternativas en días de partido."
+        }
+    },
+    "footer": {
+        "updated": "Datos actualizados",
+        "source": "Fuente",
+        "confidence": {
+            "label": "Confianza",
+            "high": "Alta",
+            "medium": "Media",
+            "low": "Baja"
+        },
+        "fallback_warning": "Usando datos de respaldo — sin conexión a fuentes oficiales",
+        "lang": "Idioma"
+    },
+    "map": {
+        "title": "Zona de cierre",
+        "perimeter_label": "Polígono Última Milla",
+        "you": "Tu ubicación",
+        "stadium": "Estadio Ciudad de México"
+    },
+    "streets": {
+        "title": "Vialidades afectadas",
+        "total": "Cierre total",
+        "partial": "Cierre parcial"
+    }
+}

@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+
+@custom-variant adjacents (&::before, &::after);
+@custom-variant dim (&:is([data-dim] *));
+
+@theme {
+    --breakpoint-rpi: 802px;
+    --font-sans: 'Inter', sans-serif;
+    --font-condensed: 'Barlow Condensed', sans-serif;
+    --color-void: #09090f;
+    --color-surface: #111118;
+    --color-surface-raised: #1c1c24;
+    --color-rim: #24242c;
+}
+
+@utility all-unset {
+    all: unset;
+}
+
+@variant adjacents {
+    &::before,
+    &::after {
+        content: '';
+    }
+}
+
+@utility interpolate-size {
+    interpolate-size: allow-keywords;
+}
+
+@utility flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@utility z-max {
+    z-index: 999999;
+}
+
+@utility spacer {
+    flex-grow: 1;
+}
+
+@layer utilities {
+    .bg-playground {
+        background-color: #313131;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.171) 1px, transparent 0);
+        background-size: 20px 20px;
+        background-position: center;
+    }
+}
+
+.debug,
+.debug * {
+    outline: 1px pink dashed;
+}
+
+@layer base {
+  :root {
+    --background: 9 9 11;
+    --foreground: 250 250 250;
+    --muted-foreground: 161 161 170;
+    --border: 39 39 42;
+    --accent: 39 39 42;
+    --popover: 24 24 27;
+    --popover-foreground: 250 250 250;
+  }
+
+  .maplibregl-popup-content {
+    @apply bg-transparent! shadow-none! p-0! rounded-none!;
+  }
+  .maplibregl-popup-tip {
+    @apply hidden!;
+  }
+}

@@ -1,0 +1,58 @@
+{
+    "today": true,
+    "dates": [
+        { "date": "2026-06-11", "partialClosure": "23:00", "totalClosure": "05:00", "prevDay": true },
+        { "date": "2026-06-17", "partialClosure": "10:00", "totalClosure": "14:00" },
+        { "date": "2026-06-24", "partialClosure": "09:00", "totalClosure": "13:00" },
+        { "date": "2026-06-30", "partialClosure": "09:00", "totalClosure": "13:00" },
+        { "date": "2026-07-05", "partialClosure": "08:00", "totalClosure": "12:00" }
+    ],
+    "affectedStreets": {
+        "total": [
+            "San Gabriel – Santa Úrsula",
+            "San Benjamín – Santa Úrsula",
+            "San Cástulo – Santa Úrsula",
+            "San Celso – Santa Úrsula",
+            "San León – Santa Úrsula",
+            "Santo Tomás – San Alejandro",
+            "Santo Tomás – San Jorge",
+            "San Guillermo – San Alejandro",
+            "San Guillermo – San Jorge",
+            "San Guillermo – Santa Úrsula"
+        ],
+        "partial": [
+            "Acoxpa y Las Torres",
+            "Periférico y Circuito Azteca",
+            "Periférico y Coscomate",
+            "Periférico y Renato Leduc",
+            "Periférico y Tlalpan",
+            "Tlalpan y Viaducto Tlalpan",
+            "Gran Sur e Imán"
+        ]
+    },
+    "perimeter": {
+        "type": "Feature",
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [[
+                [-99.1505, 19.3173],
+                [-99.1294, 19.3137],
+                [-99.1200, 19.3029],
+                [-99.1294, 19.2921],
+                [-99.1505, 19.2885],
+                [-99.1716, 19.2921],
+                [-99.1810, 19.3029],
+                [-99.1716, 19.3137],
+                [-99.1505, 19.3173]
+            ]]
+        },
+        "properties": {
+            "radiusKm": 1.6,
+            "center": { "lat": 19.3029, "lng": -99.1505 }
+        }
+    },
+    "lastChecked": "2026-06-11T08:00:00Z",
+    "source": "https://ssc.cdmx.gob.mx",
+    "confidence": "high",
+    "fallback": false
+}
