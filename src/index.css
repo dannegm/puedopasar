@@ -76,3 +76,7 @@
     @apply hidden!;
   }
 }
+
+html, body {
+    background-color: rgb(var(--color-void));
+}
