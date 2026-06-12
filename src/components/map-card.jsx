@@ -1,9 +1,33 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowUp } from 'lucide-react';
-import { Map, MapMarker, MarkerContent, MarkerTooltip, MapControls, useMap } from '@/ui/map';
+import { ArrowUp, Plus, Minus } from 'lucide-react';
+import { Map, MapMarker, MarkerContent, MarkerTooltip, useMap } from '@/ui/map';
 import { cn } from '@/helpers/utils';
 import { StadiumIcon, PersonStandingIcon } from '@/ui/icons';
+
+const ZoomControls = () => {
+    const { map } = useMap();
+    return (
+        <div className='absolute top-3 right-3 z-10 flex flex-col gap-2 bg-white rounded-full p-1 shadow-lg shadow-black/30'>
+            <button
+                type='button'
+                aria-label='Zoom in'
+                onClick={() => map?.zoomTo(map.getZoom() + 1, { duration: 300 })}
+                className='size-7 flex-center bg-neutral-100 rounded-full text-zinc-800 transition-colors hover:text-black [&>svg]:size-5 [&>svg]:[stroke-width:2.5]'
+            >
+                <Plus />
+            </button>
+            <button
+                type='button'
+                aria-label='Zoom out'
+                onClick={() => map?.zoomTo(map.getZoom() - 1, { duration: 300 })}
+                className='size-7 flex-center bg-neutral-100 rounded-full text-zinc-800 transition-colors hover:text-black [&>svg]:size-5 [&>svg]:[stroke-width:2.5]'
+            >
+                <Minus />
+            </button>
+        </div>
+    );
+};
 
 const PerimeterLayer = ({ perimeter }) => {
     const { map, isLoaded } = useMap();
@@ -16,13 +40,13 @@ const PerimeterLayer = ({ perimeter }) => {
             id: 'perimeter-fill',
             type: 'fill',
             source: 'perimeter',
-            paint: { 'fill-color': '#ef4444', 'fill-opacity': 0.15 },
+            paint: { 'fill-color': '#ef4444', 'fill-opacity': 0.35 },
         });
         map.addLayer({
             id: 'perimeter-line',
             type: 'line',
             source: 'perimeter',
-            paint: { 'line-color': '#ef4444', 'line-width': 2, 'line-opacity': 0.8 },
+            paint: { 'line-color': '#ef4444', 'line-width': 3, 'line-opacity': 1 },
         });
 
         return () => {
@@ -95,7 +119,9 @@ const DirectionArrow = ({ coords, className, flyToZoom = 14 }) => {
                 top: arrow.y,
                 transform: `translate(-50%, -50%) rotate(${arrow.angle}deg)`,
             }}
-            onClick={() => map.flyTo({ center: [coords.lng, coords.lat], zoom: flyToZoom, duration: 800 })}
+            onClick={() =>
+                map.flyTo({ center: [coords.lng, coords.lat], zoom: flyToZoom, duration: 800 })
+            }
         >
             <ArrowUp />
         </div>
@@ -110,14 +136,11 @@ export const MapCard = ({ perimeter, userCoords }) => {
 
     return (
         <section className='px-4 sm:px-6 py-8'>
-            <h2 className='font-condensed font-bold text-3xl text-white/90 mb-5'>{t('map.title')}</h2>
+            <h2 className='font-condensed font-bold text-3xl text-white/90 mb-5'>
+                {t('map.title')}
+            </h2>
             <div className='rounded-2xl overflow-hidden h-80 sm:h-96 border border-rim'>
-                <Map
-                    center={[center.lng, center.lat]}
-                    zoom={13}
-                    theme='dark'
-                    className='size-full'
-                >
+                <Map center={[center.lng, center.lat]} zoom={14} theme='dark' className='size-full'>
                     <PerimeterLayer perimeter={perimeter} />
 
                     <MapMarker longitude={center.lng} latitude={center.lat}>
@@ -151,10 +174,10 @@ export const MapCard = ({ perimeter, userCoords }) => {
                     <DirectionArrow
                         coords={center}
                         className='bg-red-500 hover:bg-red-400'
-                        flyToZoom={13}
+                        flyToZoom={14}
                     />
 
-                    <MapControls position='bottom-right' showZoom />
+                    <ZoomControls />
                 </Map>
             </div>
         </section>

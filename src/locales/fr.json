@@ -21,6 +21,7 @@
         "title": "Jours de fermeture",
         "today": "AUJOURD'HUI",
         "past": "PASSÉ",
+        "now": "MAINTENANT",
         "partial": "Partielle",
         "total": "Totale",
         "prev_day": "Depuis la veille",

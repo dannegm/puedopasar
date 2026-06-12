@@ -21,6 +21,7 @@
         "title": "Días de cierre",
         "today": "HOY",
         "past": "PASADO",
+        "now": "AHORA",
         "partial": "Cierre parcial",
         "total": "Cierre total",
         "prev_day": "Desde el día anterior",

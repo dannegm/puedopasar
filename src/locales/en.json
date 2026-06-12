@@ -21,6 +21,7 @@
         "title": "Closure days",
         "today": "TODAY",
         "past": "PAST",
+        "now": "NOW",
         "partial": "Partial",
         "total": "Full",
         "prev_day": "From the previous day",
