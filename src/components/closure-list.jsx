@@ -19,7 +19,7 @@ const formatDate = (dateStr, lng) => {
 const NowSeparator = ({ warning }) => {
     const { t } = useTranslation();
     return (
-        <li className='flex items-center [border-top-width:0]' aria-hidden>
+        <li className='flex items-center' aria-hidden>
             <div className={cn('size-4 rounded-full shrink-0 -ml-2', warning ? 'bg-red-500' : 'bg-green-500')} />
             <div className={cn('h-0.5 flex-1', warning ? 'bg-red-500' : 'bg-green-500')} />
             <span className={cn('text-xs mx-2 font-bold px-2.5 py-0.5 rounded-full shrink-0', warning ? 'bg-red-500 text-white' : 'bg-green-500 text-white')}>
@@ -39,19 +39,21 @@ export const ClosureList = ({ dates, affected, upcomingAt }) => {
             <h2 className='font-condensed font-bold text-3xl text-white/90 mb-6'>
                 {t('closure_list.title')}
             </h2>
-            <ul className='divide-y divide-white/5'>
-                {!affected &&separatorIndex === 0 && <NowSeparator warning={!!upcomingAt} />}
+            <ul>
+                {!affected && separatorIndex === 0 && <NowSeparator warning={!!upcomingAt} />}
                 {dates.map((entry, index) => {
                     const isPast = entry.date < TODAY;
                     const isToday = entry.date === TODAY;
-                    const isAfterSeparator = !affected && separatorIndex === index;
+                    const effectiveSep = separatorIndex === -1 ? dates.length : separatorIndex;
+                    const isBeforeSeparator = !affected && effectiveSep - 1 === index;
+                    const isLast = index === dates.length - 1;
 
                     return (
                         <Fragment key={entry.date}>
                             <li
                                 className={cn(
                                     'flex items-start justify-between gap-4 py-5 pl-4 border-l-4',
-                                    isAfterSeparator && '[border-top-width:0]',
+                                    !isBeforeSeparator && !isLast && 'border-b border-white/5',
                                     isToday
                                         ? 'border-red-500'
                                         : isPast
