@@ -36,7 +36,7 @@ export const Hero = ({ today, upcomingAt, proximity, geoStatus, onRequestGeo }) 
                 <h1
                     className='font-condensed font-bold uppercase leading-none tracking-tight'
                     style={{
-                        fontSize: 'clamp(4.5rem, 25vw, 9rem)',
+                        fontSize: 'clamp(3.6rem, 20vw, 7.2rem)',
                         color: today ? '#ef4444' : '#22c55e',
                     }}
                 >
