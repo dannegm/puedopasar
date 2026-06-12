@@ -16,21 +16,21 @@ const formatDate = (dateStr, lng) => {
     });
 };
 
-const NowSeparator = ({ affected }) => {
+const NowSeparator = ({ warning }) => {
     const { t } = useTranslation();
     return (
-        <li className='flex items-center' aria-hidden>
-            <div className={cn('size-4 rounded-full shrink-0 -ml-2', affected ? 'bg-red-500' : 'bg-green-500')} />
-            <div className={cn('h-0.5 flex-1', affected ? 'bg-red-500' : 'bg-green-500')} />
-            <span className={cn('text-xs mx-2 font-bold px-2.5 py-0.5 rounded-full shrink-0', affected ? 'bg-red-500 text-white' : 'bg-green-500 text-white')}>
+        <li className='flex items-center [border-top-width:0]' aria-hidden>
+            <div className={cn('size-4 rounded-full shrink-0 -ml-2', warning ? 'bg-red-500' : 'bg-green-500')} />
+            <div className={cn('h-0.5 flex-1', warning ? 'bg-red-500' : 'bg-green-500')} />
+            <span className={cn('text-xs mx-2 font-bold px-2.5 py-0.5 rounded-full shrink-0', warning ? 'bg-red-500 text-white' : 'bg-green-500 text-white')}>
                 {t('closure_list.now')}
             </span>
-            <div className={cn('h-0.5 flex-1', affected ? 'bg-red-500' : 'bg-green-500')} />
+            <div className={cn('h-0.5 flex-1', warning ? 'bg-red-500' : 'bg-green-500')} />
         </li>
     );
 };
 
-export const ClosureList = ({ dates, affected }) => {
+export const ClosureList = ({ dates, affected, upcomingAt }) => {
     const { t, i18n } = useTranslation();
     const separatorIndex = dates.findIndex(entry => entry.date > TODAY);
 
@@ -40,16 +40,18 @@ export const ClosureList = ({ dates, affected }) => {
                 {t('closure_list.title')}
             </h2>
             <ul className='divide-y divide-white/5'>
-                {!affected &&separatorIndex === 0 && <NowSeparator affected={affected} />}
+                {!affected &&separatorIndex === 0 && <NowSeparator warning={!!upcomingAt} />}
                 {dates.map((entry, index) => {
                     const isPast = entry.date < TODAY;
                     const isToday = entry.date === TODAY;
+                    const isAfterSeparator = !affected && separatorIndex === index;
 
                     return (
                         <Fragment key={entry.date}>
                             <li
                                 className={cn(
                                     'flex items-start justify-between gap-4 py-5 pl-4 border-l-4',
+                                    isAfterSeparator && '[border-top-width:0]',
                                     isToday
                                         ? 'border-red-500'
                                         : isPast
@@ -90,11 +92,11 @@ export const ClosureList = ({ dates, affected }) => {
                                     </p>
                                 </div>
                             </li>
-                            {!affected &&separatorIndex === index + 1 && <NowSeparator affected={affected} />}
+                            {!affected &&separatorIndex === index + 1 && <NowSeparator warning={!!upcomingAt} />}
                         </Fragment>
                     );
                 })}
-                {!affected &&separatorIndex === -1 && <NowSeparator affected={affected} />}
+                {!affected &&separatorIndex === -1 && <NowSeparator warning={!!upcomingAt} />}
             </ul>
         </section>
     );

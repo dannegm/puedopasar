@@ -72,7 +72,7 @@ export default function App() {
                 {divider}
                 <MapCard perimeter={statusData.perimeter} userCoords={coords} />
                 {divider}
-                <ClosureList dates={statusData.dates} affected={isClosed} />
+                <ClosureList dates={statusData.dates} affected={isClosed} upcomingAt={upcomingAt} />
                 {divider}
                 <WhyClosed />
                 {divider}
