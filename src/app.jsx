@@ -59,8 +59,6 @@ export default function App() {
                     WebkitMaskSize: '240px 240px',
                     maskRepeat: 'repeat',
                     WebkitMaskRepeat: 'repeat',
-                    maskMode: 'luminance',
-                    WebkitMaskMode: 'luminance',
                 }}
             />
             <div className='relative max-w-2xl mx-auto'>
