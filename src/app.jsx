@@ -1,5 +1,7 @@
 import './i18n';
 
+import { useEffect } from 'react';
+
 import statusData from '@/data/status.json';
 
 import { getClosureStatus } from '@/helpers/closure';
@@ -19,6 +21,16 @@ export default function App() {
     const { coords, status: geoStatus, request: requestGeo } = useGeolocation();
     const proximity = useProximity(coords, statusData.perimeter);
     const { active: isClosed, upcomingAt } = getClosureStatus(statusData.dates);
+
+    useEffect(() => {
+        const voidColor = getComputedStyle(document.documentElement).getPropertyValue('--color-void').trim();
+        if (!voidColor) return;
+
+        const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeColorMeta) {
+            themeColorMeta.setAttribute('content', voidColor);
+        }
+    }, []);
 
     const divider = <hr className='border-rim mx-4 sm:mx-6' />;
 

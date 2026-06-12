@@ -78,5 +78,13 @@
 }
 
 html, body {
-    background-color: rgb(var(--color-void));
+    background-color: var(--color-void);
+}
+
+@supports (-webkit-touch-callout: none) {
+    html,
+    body,
+    #root {
+        background-color: var(--color-void);
+    }
 }
