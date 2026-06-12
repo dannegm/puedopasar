@@ -72,6 +72,13 @@
         "you": "Votre position",
         "stadium": "Estadio Ciudad de México"
     },
+    "relief": {
+        "label": "Zone libérée",
+        "title_start": "On a esquivé",
+        "title_italic": "ce dont on ne doit pas prononcer le nom",
+        "subtitle": "Plus de fermetures de routes — vous pouvez circuler librement dans la zone du stade.",
+        "footnote": "* Le tournoi international aux droits d'auteur excessifs"
+    },
     "streets": {
         "title": "Routes affectées",
         "total": "Fermeture totale",

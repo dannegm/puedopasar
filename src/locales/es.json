@@ -72,6 +72,13 @@
         "you": "Tu ubicación",
         "stadium": "Estadio Ciudad de México"
     },
+    "relief": {
+        "label": "Zona liberada",
+        "title_start": "Esquivamos al que",
+        "title_italic": "no debe ser nombrado",
+        "subtitle": "Ya no hay cierres viales — puedes circular con tranquilidad por la zona del estadio.",
+        "footnote": "* El torneo internacional con exceso de copyright"
+    },
     "streets": {
         "title": "Vialidades afectadas",
         "total": "Cierre total",

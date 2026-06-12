@@ -72,6 +72,13 @@
         "you": "Your location",
         "stadium": "Estadio Ciudad de México"
     },
+    "relief": {
+        "label": "Zone cleared",
+        "title_start": "We dodged",
+        "title_italic": "that which must not be named",
+        "subtitle": "No more road closures — you can move freely around the stadium area.",
+        "footnote": "* The international tournament with excessive copyright"
+    },
     "streets": {
         "title": "Affected roads",
         "total": "Full closure",

@@ -9,6 +9,7 @@ import { useGeolocation } from '@/hooks/use-geolocation';
 import { useProximity } from '@/hooks/use-proximity';
 
 import { Hero } from '@/components/hero';
+import { ReliefCard } from '@/components/relief-card';
 import { MapCard } from '@/components/map-card';
 import { ClosureList } from '@/components/closure-list';
 import { WhyClosed } from '@/components/why-closed';
@@ -21,6 +22,9 @@ export default function App() {
     const { coords, status: geoStatus, request: requestGeo } = useGeolocation();
     const proximity = useProximity(coords, statusData.perimeter);
     const { active: isClosed, upcomingAt } = getClosureStatus(statusData.dates);
+    const TODAY = new Date().toISOString().slice(0, 10);
+    const allDatesPast = statusData.dates.every(d => d.date < TODAY);
+    const showRelief = allDatesPast || new URLSearchParams(window.location.search).has('show-relief');
 
     useEffect(() => {
         const voidColor = getComputedStyle(document.documentElement).getPropertyValue('--color-void').trim();
@@ -69,6 +73,7 @@ export default function App() {
                     geoStatus={geoStatus}
                     onRequestGeo={requestGeo}
                 />
+                {showRelief && <ReliefCard />}
                 {divider}
                 <MapCard perimeter={statusData.perimeter} userCoords={coords} />
                 {divider}

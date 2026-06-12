@@ -22,6 +22,7 @@
     "lucide-react": "^1.17.0",
     "maplibre-gl": "^5.24.0",
     "nuqs": "^2.8.9",
+    "partycles": "^1.2.6",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-i18next": "^17.0.8",
