@@ -20,7 +20,7 @@ const NowSeparator = ({ warning }) => {
     const { t } = useTranslation();
     return (
         <li className='flex items-center' aria-hidden>
-            <div className={cn('size-4 rounded-full shrink-0 -ml-2', warning ? 'bg-red-500' : 'bg-green-500')} />
+            <div className={cn('size-4 rounded-full shrink-0 -ml-[6px]', warning ? 'bg-red-500' : 'bg-green-500')} />
             <div className={cn('h-0.5 flex-1', warning ? 'bg-red-500' : 'bg-green-500')} />
             <span className={cn('text-xs mx-2 font-bold px-2.5 py-0.5 rounded-full shrink-0', warning ? 'bg-red-500 text-white' : 'bg-green-500 text-white')}>
                 {t('closure_list.now')}
