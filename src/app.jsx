@@ -32,6 +32,17 @@ export default function App() {
         }
     }, []);
 
+    useEffect(() => {
+        const id = import.meta.env.VITE_UMAMI_ID;
+        const host = import.meta.env.VITE_UMAMI_HOST;
+        if (!id || !host) return;
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = `${host}/script.js`;
+        script.setAttribute('data-website-id', id);
+        document.head.appendChild(script);
+    }, []);
+
     const divider = <hr className='border-rim mx-4 sm:mx-6' />;
 
     return (
