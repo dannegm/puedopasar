@@ -29,6 +29,44 @@ const ZoomControls = () => {
     );
 };
 
+const LANG_FIELDS = {
+    en: [['get', 'name_en'], ['get', 'name']],
+    fr: [['get', 'name_fr'], ['get', 'name_en'], ['get', 'name']],
+    ja: [['get', 'name_ja'], ['get', 'name_en'], ['get', 'name']],
+};
+
+const getLangExpression = lang => {
+    const fields = LANG_FIELDS[lang];
+    if (!fields) return ['get', 'name'];
+    return ['coalesce', ...fields];
+};
+
+const MapLanguage = () => {
+    const { map, isLoaded } = useMap();
+    const { i18n } = useTranslation();
+
+    useEffect(() => {
+        if (!isLoaded || !map) return;
+
+        const expr = getLangExpression(i18n.language);
+
+        map.getStyle().layers
+            .filter(l => l.type === 'symbol')
+            .forEach(l => {
+                try {
+                    const tf = map.getLayoutProperty(l.id, 'text-field');
+                    if (tf && JSON.stringify(tf).includes('"name"')) {
+                        map.setLayoutProperty(l.id, 'text-field', expr);
+                    }
+                } catch {
+                    // ignore
+                }
+            });
+    }, [isLoaded, map, i18n.language]);
+
+    return null;
+};
+
 const PerimeterLayer = ({ perimeter }) => {
     const { map, isLoaded } = useMap();
 
@@ -138,6 +176,7 @@ export const MapCard = ({ perimeter, userCoords }) => {
             </h2>
             <div className='rounded-2xl overflow-hidden h-80 sm:h-96 border border-rim'>
                 <Map center={[center.lng, center.lat]} zoom={14} theme='dark' className='size-full'>
+                    <MapLanguage />
                     <PerimeterLayer perimeter={perimeter} />
 
                     <MapMarker longitude={center.lng} latitude={center.lat}>
