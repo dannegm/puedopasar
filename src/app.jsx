@@ -51,8 +51,16 @@ export default function App() {
                 className='absolute inset-x-0 top-0 h-96 pointer-events-none'
                 style={{
                     background: isClosed
-                        ? 'radial-gradient(ellipse 100% 100% at 50% 0%, rgba(239,68,68,0.18) 0%, transparent 100%)'
-                        : 'radial-gradient(ellipse 100% 100% at 50% 0%, rgba(34,197,94,0.18) 0%, transparent 100%)',
+                        ? 'radial-gradient(ellipse 100% 100% at 50% 0%, rgba(239,68,68,0.5) 0%, transparent 100%)'
+                        : 'radial-gradient(ellipse 100% 100% at 50% 0%, rgba(34,197,94,0.5) 0%, transparent 100%)',
+                    maskImage: 'url(/pattern-mask.svg)',
+                    WebkitMaskImage: 'url(/pattern-mask.svg)',
+                    maskSize: '240px 240px',
+                    WebkitMaskSize: '240px 240px',
+                    maskRepeat: 'repeat',
+                    WebkitMaskRepeat: 'repeat',
+                    maskMode: 'luminance',
+                    WebkitMaskMode: 'luminance',
                 }}
             />
             <div className='relative max-w-2xl mx-auto'>

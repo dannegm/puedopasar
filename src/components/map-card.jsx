@@ -132,7 +132,7 @@ export const MapCard = ({ perimeter, userCoords }) => {
     if (!center) return null;
 
     return (
-        <section className='px-4 sm:px-6 py-8'>
+        <section className='px-4 sm:px-6 py-8 pt-4'>
             <h2 className='font-condensed font-bold text-3xl text-white/90 mb-5'>
                 {t('map.title')}
             </h2>

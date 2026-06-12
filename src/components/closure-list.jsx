@@ -35,7 +35,7 @@ export const ClosureList = ({ dates, affected }) => {
     const separatorIndex = dates.findIndex(entry => entry.date > TODAY);
 
     return (
-        <section className='px-4 sm:px-6 py-10'>
+        <section className='px-4 sm:px-6 py-10 pt-4'>
             <h2 className='font-condensed font-bold text-3xl text-white/90 mb-6'>
                 {t('closure_list.title')}
             </h2>

@@ -3,17 +3,17 @@ import { Navigation } from 'lucide-react';
 import { cn } from '@/helpers/utils';
 
 const PROXIMITY_COLORS = {
-    inside: 'bg-red-500',
-    near: 'bg-orange-500',
-    close: 'bg-yellow-500',
-    safe: 'bg-green-500',
+    inside: 'bg-red-300',
+    near: 'bg-orange-300',
+    close: 'bg-yellow-300',
+    safe: 'bg-green-300',
 };
 
 const PROXIMITY_BADGE = {
-    inside: 'bg-red-500/10 border-red-500/20 text-red-400',
-    near: 'bg-orange-500/10 border-orange-500/20 text-orange-400',
-    close: 'bg-yellow-500/10 border-yellow-500/20 text-yellow-400',
-    safe: 'bg-green-500/10 border-green-500/20 text-green-400',
+    inside: 'bg-red-500/50 border-red-500/70 text-red-200',
+    near: 'bg-orange-500/50 border-orange-500/70 text-orange-200',
+    close: 'bg-yellow-500/50 border-yellow-500/70 text-yellow-200',
+    safe: 'bg-green-500/50 border-green-500/70 text-green-200',
 };
 
 const formatDistance = km => {
@@ -26,8 +26,8 @@ export const Hero = ({ today, upcomingAt, proximity, geoStatus, onRequestGeo }) 
     const { level, distanceFromCenterKm } = proximity;
 
     return (
-        <section className='px-6 pt-8 pb-7'>
-            <p className='text-xs font-semibold tracking-[0.2em] uppercase text-zinc-500 mb-4'>
+        <section className='px-6 pt-8 pb-4'>
+            <p className='text-xs font-semibold tracking-[0.2em] uppercase text-zinc-300 mb-4'>
                 {t('hero.question')}
             </p>
 
@@ -98,7 +98,7 @@ export const Hero = ({ today, upcomingAt, proximity, geoStatus, onRequestGeo }) 
                                 {t(`hero.proximity.${level}`)}
                             </div>
                             {distanceFromCenterKm != null && (
-                                <p className='text-zinc-500 text-xs'>
+                                <p className='text-zinc-300 text-xs'>
                                     {t('hero.distance_from_stadium', {
                                         distance: formatDistance(distanceFromCenterKm),
                                     })}
