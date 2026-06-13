@@ -68,9 +68,7 @@
     },
     "map": {
         "title": "Zone de fermeture",
-        "perimeter_label": "Polygone Última Milla",
-        "you": "Votre position",
-        "stadium": "Estadio Ciudad de México"
+        "perimeter_label": "Polygone Última Milla"
     },
     "relief": {
         "label": "Zone libérée",

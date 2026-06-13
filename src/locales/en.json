@@ -68,9 +68,7 @@
     },
     "map": {
         "title": "Closure zone",
-        "perimeter_label": "Última Milla Polygon",
-        "you": "Your location",
-        "stadium": "Estadio Ciudad de México"
+        "perimeter_label": "Última Milla Polygon"
     },
     "relief": {
         "label": "Zone cleared",

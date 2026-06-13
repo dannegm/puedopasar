@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowUp, Plus, Minus } from 'lucide-react';
-import { Map, MapMarker, MarkerContent, MarkerTooltip, useMap } from '@/ui/map';
+import { Map, MapMarker, MarkerContent, useMap } from '@/ui/map';
 import { cn } from '@/helpers/utils';
 import { StadiumIcon, PersonStandingIcon } from '@/ui/icons';
 
@@ -198,7 +198,6 @@ export const MapCard = ({ perimeter, userCoords }) => {
                                 <StadiumIcon size='2.25rem' />
                             </div>
                         </MarkerContent>
-                        <MarkerTooltip>{t('map.stadium')}</MarkerTooltip>
                     </FlyToMarker>
 
                     {userCoords && (
@@ -209,7 +208,6 @@ export const MapCard = ({ perimeter, userCoords }) => {
                                         <PersonStandingIcon size='1rem' />
                                     </div>
                                 </MarkerContent>
-                                <MarkerTooltip>{t('map.you')}</MarkerTooltip>
                             </FlyToMarker>
 
                             <DirectionArrow

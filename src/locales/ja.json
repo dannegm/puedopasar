@@ -68,9 +68,7 @@
     },
     "map": {
         "title": "閉鎖ゾーン",
-        "perimeter_label": "ウルティマ・ミジャ・ポリゴン",
-        "you": "現在地",
-        "stadium": "エスタディオ・シウダー・デ・メヒコ"
+        "perimeter_label": "ウルティマ・ミジャ・ポリゴン"
     },
     "relief": {
         "label": "エリア解放",
