@@ -410,7 +410,11 @@ function MarkerContent({
 }) {
   const { marker } = useMarkerContext();
 
-  return createPortal(<div className={cn("relative cursor-pointer", className)}>
+  useEffect(() => {
+    marker.getElement().style.cursor = 'pointer';
+  }, [marker]);
+
+  return createPortal(<div className={cn("relative", className)}>
     {children || <DefaultMarkerIcon />}
   </div>, marker.getElement());
 }
