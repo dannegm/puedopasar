@@ -10,4 +10,16 @@ export default defineConfig({
             '@': resolve(__dirname, './src'),
         },
     },
+    optimizeDeps: {
+        exclude: ['maplibre-gl'],
+    },
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: (id) => {
+                    if (id.includes('maplibre-gl')) return 'maplibre-gl';
+                },
+            },
+        },
+    },
 });
