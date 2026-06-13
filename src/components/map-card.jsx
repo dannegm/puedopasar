@@ -97,6 +97,19 @@ const PerimeterLayer = ({ perimeter }) => {
     return null;
 };
 
+const FlyToMarker = ({ longitude, latitude, zoom = 14, children }) => {
+    const { map } = useMap();
+    return (
+        <MapMarker
+            longitude={longitude}
+            latitude={latitude}
+            onClick={() => map?.flyTo({ center: [longitude, latitude], zoom, duration: 800 })}
+        >
+            {children}
+        </MapMarker>
+    );
+};
+
 const DirectionArrow = ({ coords, className, flyToZoom = 14 }) => {
     const { map, isLoaded } = useMap();
     const [arrow, setArrow] = useState(null);
@@ -179,25 +192,25 @@ export const MapCard = ({ perimeter, userCoords }) => {
                     <MapLanguage />
                     <PerimeterLayer perimeter={perimeter} />
 
-                    <MapMarker longitude={center.lng} latitude={center.lat}>
+                    <FlyToMarker longitude={center.lng} latitude={center.lat}>
                         <MarkerContent>
                             <div className='size-16 rounded-full bg-red-500 border-2 border-white shadow-md shadow-black/50 flex-center text-white'>
                                 <StadiumIcon size='2.25rem' />
                             </div>
                         </MarkerContent>
                         <MarkerTooltip>{t('map.stadium')}</MarkerTooltip>
-                    </MapMarker>
+                    </FlyToMarker>
 
                     {userCoords && (
                         <>
-                            <MapMarker longitude={userCoords.lng} latitude={userCoords.lat}>
+                            <FlyToMarker longitude={userCoords.lng} latitude={userCoords.lat}>
                                 <MarkerContent>
                                     <div className='size-6 rounded-full bg-blue-500 border-2 border-white shadow-md shadow-black/50 flex-center text-white'>
                                         <PersonStandingIcon size='1rem' />
                                     </div>
                                 </MarkerContent>
                                 <MarkerTooltip>{t('map.you')}</MarkerTooltip>
-                            </MapMarker>
+                            </FlyToMarker>
 
                             <DirectionArrow
                                 coords={userCoords}
